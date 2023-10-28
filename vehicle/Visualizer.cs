@@ -73,4 +73,44 @@ public partial class Visualizer : Node2D
 		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
 
 	}
+
+	private void Draw1()
+	{
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+	}
+
+	private void Draw2()
+	{
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+		DrawArc(Vector2.Zero, Radius, 0, 360, 120, Color, Width);
+		DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
+	}
 }

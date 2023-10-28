@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class Visuzlizer : Node2D
+public partial class Visualizer : Node2D
 {
 
 	private float _radius = 10;

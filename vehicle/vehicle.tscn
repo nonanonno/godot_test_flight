@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8lk0jvu8clxl"]
 
-[ext_resource type="Script" path="res://vehicle/Visuzlizer.cs" id="1_83bdy"]
+[ext_resource type="Script" path="res://vehicle/Visualizer.cs" id="1_ubpfj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg64t"]
 
@@ -10,6 +10,4 @@
 shape = SubResource("CircleShape2D_pg64t")
 
 [node name="Visualizer" type="Node2D" parent="."]
-script = ExtResource("1_83bdy")
-Color = Color(0.643137, 0.443137, 0.729412, 1)
-Width = 1.0
+script = ExtResource("1_ubpfj")

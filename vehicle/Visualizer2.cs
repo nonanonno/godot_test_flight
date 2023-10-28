@@ -56,6 +56,7 @@ public partial class Visualizer2 : Node2D
 
     public override void _Draw()
     {
-        Drawer.Draw(this, Radius, Color, Width);
+        DrawArc(Vector2.Zero, Radius, 0, 360, 60, Color, Width);
+        DrawLine(Vector2.Zero, new Vector2(Radius, 0), Color, Width);
     }
 }

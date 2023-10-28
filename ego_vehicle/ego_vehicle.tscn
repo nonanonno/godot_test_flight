@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b23hbvpdrakxj"]
+
+[ext_resource type="Script" path="res://ego_vehicle/EgoVehicleVisualizer.cs" id="1_pjq4k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0p0p"]
+
+[node name="EgoVehicle" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h0p0p")
+
+[node name="Visualizer" type="Node2D" parent="."]
+script = ExtResource("1_pjq4k")

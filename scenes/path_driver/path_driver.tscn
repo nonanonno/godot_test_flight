@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bovl17d8g536e"]
+
+[ext_resource type="Script" path="res://scenes/path_driver/PathDriver.cs" id="1_6dte6"]
+
+[sub_resource type="Curve2D" id="Curve2D_m4fbt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2.08165e-12, 2.08165e-12, 0, 0, 0, 0, 500, 500)
+}
+point_count = 2
+
+[node name="PathDriver" type="Path2D"]
+curve = SubResource("Curve2D_m4fbt")
+script = ExtResource("1_6dte6")
+Speed = 400.0
+Debug = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = 0.785398

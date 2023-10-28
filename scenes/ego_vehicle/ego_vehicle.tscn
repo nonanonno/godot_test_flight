@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b23hbvpdrakxj"]
+[gd_scene load_steps=4 format=3 uid="uid://b23hbvpdrakxj"]
 
 [ext_resource type="Script" path="res://scenes/ego_vehicle/EgoVehicleVisualizer.cs" id="1_4b6s3"]
+[ext_resource type="Script" path="res://scenes/ego_vehicle/EgoVehicle.cs" id="1_bog2r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0p0p"]
 
 [node name="EgoVehicle" type="Area2D"]
+script = ExtResource("1_bog2r")
+RotationRate = 5.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_h0p0p")
 
 [node name="Visualizer" type="Node2D" parent="."]

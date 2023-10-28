@@ -6,7 +6,7 @@ public partial class Visualizer : Node2D
 {
 
 	private float _radius = 10;
-	private Color _my_color = Colors.Red;
+	private Color _color = Colors.Red;
 
 	private float _width = -1;
 
@@ -24,10 +24,10 @@ public partial class Visualizer : Node2D
 	[Export]
 	public Color Color
 	{
-		get => _my_color;
+		get => _color;
 		set
 		{
-			_my_color = value;
+			_color = value;
 			QueueRedraw();
 		}
 	}

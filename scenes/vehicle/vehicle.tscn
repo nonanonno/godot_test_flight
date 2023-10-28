@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8lk0jvu8clxl"]
 
-[ext_resource type="Script" path="res://vehicle/VehicleVisualizer.cs" id="1_08ofe"]
+[ext_resource type="Script" path="res://scenes/vehicle/VehicleVisualizer.cs" id="1_qaw7l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg64t"]
 
 [node name="Vehicle" type="Area2D"]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pg64t")
 
 [node name="Visualizer" type="Node2D" parent="."]
-script = ExtResource("1_08ofe")
+script = ExtResource("1_qaw7l")

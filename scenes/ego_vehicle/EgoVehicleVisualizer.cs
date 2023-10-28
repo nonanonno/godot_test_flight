@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[Tool]
 public partial class EgoVehicleVisualizer : Node2D
 {
     private float _radius = 10;

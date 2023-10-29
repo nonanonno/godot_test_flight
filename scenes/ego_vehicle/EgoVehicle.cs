@@ -11,7 +11,7 @@ public partial class EgoVehicle : Area2D
 
     public Vector2 ScreenSize;
 
-    private ModelInterface _model;
+    private CopterModel _model;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {

@@ -10,10 +10,13 @@ public partial class EgoVehicle : Area2D
     public float RotationRate { get; set; } = 1;
 
     public Vector2 ScreenSize;
+
+    private ModelInterface _model;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         ScreenSize = GetViewportRect().Size;
+        _model = new CopterModel();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,12 +49,10 @@ public partial class EgoVehicle : Area2D
         {
             rotation += 1;
         }
-        Rotation += RotationRate * rotation * (float)delta;
         if (velocity.Length() > 0)
         {
             velocity = velocity.Normalized();
-            velocity = velocity.Rotated(Rotation);
-            Position += velocity * Speed * (float)delta;
         }
+        (Position, Rotation) = _model.Update(Position, Rotation, velocity * Speed, rotation * RotationRate, delta);
     }
 }

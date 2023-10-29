@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg64t"]
 
 [node name="Vehicle" type="Area2D"]
+collision_layer = 4
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

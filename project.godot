@@ -56,3 +56,6 @@ move_right={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="AirPort"
+2d_physics/layer_3="NonEgo"
+2d_physics/layer_4="Waypoint"
+2d_physics/layer_5="PlayerMargin"

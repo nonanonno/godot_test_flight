@@ -11,7 +11,7 @@ point_count = 2
 [node name="PathDriver" type="Path2D"]
 curve = SubResource("Curve2D_m4fbt")
 script = ExtResource("1_6dte6")
-Speed = 400.0
+Speed = 40.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)

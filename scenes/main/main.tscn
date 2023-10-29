@@ -1,67 +1,160 @@
-[gd_scene load_steps=8 format=3 uid="uid://btr3rlm7bqhjv"]
+[gd_scene load_steps=14 format=3 uid="uid://btr3rlm7bqhjv"]
 
 [ext_resource type="PackedScene" uid="uid://b23hbvpdrakxj" path="res://scenes/ego_vehicle/ego_vehicle.tscn" id="1_w8io1"]
 [ext_resource type="PackedScene" uid="uid://bovl17d8g536e" path="res://scenes/path_driver/path_driver.tscn" id="2_xhkmv"]
 [ext_resource type="PackedScene" uid="uid://c8lk0jvu8clxl" path="res://scenes/vehicle/vehicle.tscn" id="3_xgh7w"]
 [ext_resource type="PackedScene" uid="uid://db5guagjap4xx" path="res://scenes/airport/air_port.tscn" id="4_wkgfe"]
 [ext_resource type="PackedScene" uid="uid://ceoihroiwcqj7" path="res://scenes/trajectory/trajectory.tscn" id="5_tsp22"]
+[ext_resource type="PackedScene" uid="uid://dwxm8d5wnps4t" path="res://scenes/waypoints/waypoints.tscn" id="6_uu1tc"]
+
+[sub_resource type="Curve2D" id="Curve2D_xbp6j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 171, 512, 0, 0, 0, 0, 335, 469, 0, 0, 0, 0, 364, 188, 0, 0, 0, 0, 658, 557, 0, 0, 0, 0, 1131, 617, 0, 0, 0, 0, 693, 296, 0, 0, 0, 0, 844, 110, 0, 0, 0, 0, 1005, 95)
+}
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_ho6v5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 506, 898, 0, 0, 0, 0, -78, -111)
+"points": PackedVector2Array(0, 0, 0, 0, 285, 727, 0, 0, 0, 0, 75, -74)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_4j1de"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 223, -227, 0, 0, 0, 0, 953, 731)
+"points": PackedVector2Array(0, 0, 0, 0, 504, -13, 0, 0, 0, 0, 834, 688)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_x5jep"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 767, -46, 0, 0, 0, 0, 398, 692, 0, 0, 0, 0, -367, 489)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_ttk0e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 431, -25, 0, 0, 0, 0, 372, 662)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qifue"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -17, 338, 0, 0, 0, 0, 1176, 318)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jv2wm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1204, 602, 0, 0, 0, 0, 38, -34)
 }
 point_count = 2
 
 [node name="Main" type="Node2D"]
-
-[node name="EgoVehicle" parent="." node_paths=PackedStringArray("Label") instance=ExtResource("1_w8io1")]
-position = Vector2(171, 189)
-collision_mask = 4
-Label = NodePath("../Label")
-
-[node name="EgoVehicleTrajectory" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-default_color = Color(0, 1, 0, 0.47451)
-Target = NodePath("../EgoVehicle")
-
-[node name="PathDriver1" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
-curve = SubResource("Curve2D_ho6v5")
-Target = NodePath("Vehicle1")
-
-[node name="VehicleTrajectory1" parent="PathDriver1" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-default_color = Color(1, 0, 0, 0.47451)
-Target = NodePath("../Vehicle1")
-
-[node name="Vehicle1" parent="PathDriver1" instance=ExtResource("3_xgh7w")]
-collision_layer = 4
-
-[node name="PathDriver2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
-curve = SubResource("Curve2D_4j1de")
-Target = NodePath("Vehicle2")
-
-[node name="VehicleTrajectory2" parent="PathDriver2" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-default_color = Color(1, 0, 0, 0.47451)
-Target = NodePath("../Vehicle2")
-
-[node name="Vehicle2" parent="PathDriver2" instance=ExtResource("3_xgh7w")]
-collision_layer = 4
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="AirPort" parent="." instance=ExtResource("4_wkgfe")]
-position = Vector2(121, 564)
+position = Vector2(53, 507)
 collision_layer = 2
 
 [node name="AirPort2" parent="." instance=ExtResource("4_wkgfe")]
-position = Vector2(1053, 119)
+position = Vector2(1128, 38)
 collision_layer = 2
 
-[connection signal="Looped" from="PathDriver1" to="PathDriver1/VehicleTrajectory1" method="Clear"]
-[connection signal="Looped" from="PathDriver2" to="PathDriver2/VehicleTrajectory2" method="Clear"]
+[node name="Waypoints" parent="." instance=ExtResource("6_uu1tc")]
+curve = SubResource("Curve2D_xbp6j")
+
+[node name="NonEgos" type="Node2D" parent="."]
+
+[node name="PathDriver1" parent="NonEgos" node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
+curve = SubResource("Curve2D_ho6v5")
+Target = NodePath("Vehicle1")
+
+[node name="VehicleTrajectory1" parent="NonEgos/PathDriver1" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+default_color = Color(1, 0, 0, 0.47451)
+Target = NodePath("../Vehicle1")
+
+[node name="Vehicle1" parent="NonEgos/PathDriver1" instance=ExtResource("3_xgh7w")]
+
+[node name="PathDriver2" parent="NonEgos" node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
+curve = SubResource("Curve2D_4j1de")
+Target = NodePath("Vehicle2")
+
+[node name="VehicleTrajectory2" parent="NonEgos/PathDriver2" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+default_color = Color(1, 0, 0, 0.47451)
+Target = NodePath("../Vehicle2")
+
+[node name="Vehicle2" parent="NonEgos/PathDriver2" instance=ExtResource("3_xgh7w")]
+
+[node name="PathDriver3" parent="NonEgos" node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
+curve = SubResource("Curve2D_x5jep")
+Speed = 30.0
+Target = NodePath("Vehicle3")
+
+[node name="VehicleTrajectory3" parent="NonEgos/PathDriver3" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+points = PackedVector2Array(100, 2.08165e-12, 0, 0)
+default_color = Color(1, 0, 0, 0.47451)
+Target = NodePath("../Vehicle3")
+
+[node name="Vehicle3" parent="NonEgos/PathDriver3" instance=ExtResource("3_xgh7w")]
+
+[node name="PathDriver4" parent="NonEgos" node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
+curve = SubResource("Curve2D_ttk0e")
+Target = NodePath("Vehicle4")
+
+[node name="VehicleTrajectory4" parent="NonEgos/PathDriver4" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+points = PackedVector2Array(100, 2.08165e-12, 0, 0)
+default_color = Color(1, 0, 0, 0.47451)
+Target = NodePath("../Vehicle4")
+
+[node name="Vehicle4" parent="NonEgos/PathDriver4" instance=ExtResource("3_xgh7w")]
+
+[node name="PathDriver5" parent="NonEgos" node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
+curve = SubResource("Curve2D_qifue")
+Speed = 70.0
+Target = NodePath("Vehicle5")
+
+[node name="VehicleTrajectory5" parent="NonEgos/PathDriver5" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+points = PackedVector2Array(100, 2.08165e-12, 0, 0)
+default_color = Color(1, 0, 0, 0.47451)
+Target = NodePath("../Vehicle5")
+
+[node name="Vehicle5" parent="NonEgos/PathDriver5" instance=ExtResource("3_xgh7w")]
+
+[node name="PathDriver6" parent="NonEgos" node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
+curve = SubResource("Curve2D_jv2wm")
+Speed = 50.0
+Target = NodePath("Vehicle6")
+
+[node name="VehicleTrajectory6" parent="NonEgos/PathDriver6" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+points = PackedVector2Array(100, 2.08165e-12, 0, 0)
+default_color = Color(1, 0, 0, 0.47451)
+Target = NodePath("../Vehicle6")
+
+[node name="Vehicle6" parent="NonEgos/PathDriver6" instance=ExtResource("3_xgh7w")]
+
+[node name="EgoVehicle" parent="." node_paths=PackedStringArray("Label") instance=ExtResource("1_w8io1")]
+position = Vector2(52, 507)
+Speed = 40.0
+Label = NodePath("../Label")
+
+[node name="EgoVehicleTrajectory" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
+default_color = Color(0, 1, 0, 0.47451)
+Target = NodePath("../EgoVehicle")
+
+[connection signal="area_entered" from="Waypoints/WayPoint0" to="Waypoints/WayPoint0/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint1" to="Waypoints/WayPoint1/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint2" to="Waypoints/WayPoint2/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint3" to="Waypoints/WayPoint3/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint4" to="Waypoints/WayPoint4/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint5" to="Waypoints/WayPoint5/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint6" to="Waypoints/WayPoint6/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="area_entered" from="Waypoints/WayPoint7" to="Waypoints/WayPoint7/CollisionShape2D" method="OnAreaEntered" flags=18]
+[connection signal="Looped" from="NonEgos/PathDriver1" to="NonEgos/PathDriver1/VehicleTrajectory1" method="Clear"]
+[connection signal="Looped" from="NonEgos/PathDriver2" to="NonEgos/PathDriver2/VehicleTrajectory2" method="Clear"]
+[connection signal="Looped" from="NonEgos/PathDriver3" to="NonEgos/PathDriver3/VehicleTrajectory3" method="Clear"]
+[connection signal="Looped" from="NonEgos/PathDriver4" to="NonEgos/PathDriver4/VehicleTrajectory4" method="Clear"]
+[connection signal="Looped" from="NonEgos/PathDriver5" to="NonEgos/PathDriver5/VehicleTrajectory5" method="Clear"]
+[connection signal="Looped" from="NonEgos/PathDriver6" to="NonEgos/PathDriver6/VehicleTrajectory6" method="Clear"]

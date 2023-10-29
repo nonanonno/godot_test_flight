@@ -66,4 +66,12 @@ public partial class EgoVehicle : Area2D
             Label.Text += "Collision\n";
         }
     }
+
+    public void OnMarginEntered(Area2D area)
+    {
+        if (Label != null)
+        {
+            Label.Text += "incident\n";
+        }
+    }
 }

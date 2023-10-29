@@ -15,6 +15,9 @@ public partial class PathDriver : Path2D
     [Export]
     public Node2D Target { get; set; } = null;
 
+    [Signal]
+    public delegate void LoopedEventHandler();
+
     private PathFollow2D _follow;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -40,7 +43,12 @@ public partial class PathDriver : Path2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        _follow.Progress += (float)(Speed * delta);
+        var next_progress = _follow.Progress + (float)(Speed * delta);
+        _follow.Progress = next_progress;
+        if (!Mathf.IsEqualApprox(next_progress, _follow.Progress))
+        {
+            EmitSignal(SignalName.Looped);
+        }
         if (Target != null)
         {
             Target.Transform = _follow.Transform;

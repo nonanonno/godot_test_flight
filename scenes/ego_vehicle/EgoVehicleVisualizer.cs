@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 [Tool]
 public partial class EgoVehicleVisualizer : Node2D

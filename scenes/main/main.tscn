@@ -27,9 +27,9 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_x5jep"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 767, -46, 0, 0, 0, 0, 398, 692, 0, 0, 0, 0, -367, 489)
+"points": PackedVector2Array(0, 0, 0, 0, 767, -46, 0, 0, 0, 0, 398, 692)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_ttk0e"]
 _data = {
@@ -39,15 +39,15 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_qifue"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -17, 338, 0, 0, 0, 0, 1176, 318)
+"points": PackedVector2Array(0, 0, 0, 0, -17, 338, 0, 0, 0, 0, 602, 426, 0, 0, 0, 0, 1176, 318)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_jv2wm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1204, 602, 0, 0, 0, 0, 38, -34)
+"points": PackedVector2Array(0, 0, 0, 0, 1204, 602, 0, 0, 0, 0, 801, 215, 0, 0, 0, 0, 38, -34)
 }
-point_count = 2
+point_count = 3
 
 [node name="Main" type="Node2D"]
 
@@ -94,7 +94,6 @@ Speed = 30.0
 Target = NodePath("Vehicle3")
 
 [node name="VehicleTrajectory3" parent="NonEgos/PathDriver3" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-points = PackedVector2Array(100, 2.08165e-12, 0, 0)
 default_color = Color(1, 0, 0, 0.47451)
 Target = NodePath("../Vehicle3")
 
@@ -105,7 +104,6 @@ curve = SubResource("Curve2D_ttk0e")
 Target = NodePath("Vehicle4")
 
 [node name="VehicleTrajectory4" parent="NonEgos/PathDriver4" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-points = PackedVector2Array(100, 2.08165e-12, 0, 0)
 default_color = Color(1, 0, 0, 0.47451)
 Target = NodePath("../Vehicle4")
 
@@ -117,7 +115,6 @@ Speed = 70.0
 Target = NodePath("Vehicle5")
 
 [node name="VehicleTrajectory5" parent="NonEgos/PathDriver5" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-points = PackedVector2Array(100, 2.08165e-12, 0, 0)
 default_color = Color(1, 0, 0, 0.47451)
 Target = NodePath("../Vehicle5")
 
@@ -129,7 +126,6 @@ Speed = 50.0
 Target = NodePath("Vehicle6")
 
 [node name="VehicleTrajectory6" parent="NonEgos/PathDriver6" node_paths=PackedStringArray("Target") instance=ExtResource("5_tsp22")]
-points = PackedVector2Array(100, 2.08165e-12, 0, 0)
 default_color = Color(1, 0, 0, 0.47451)
 Target = NodePath("../Vehicle6")
 

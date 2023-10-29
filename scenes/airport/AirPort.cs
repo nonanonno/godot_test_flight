@@ -28,7 +28,7 @@ public partial class AirPort : Area2D
 		}
 		if (Label != null)
 		{
-			var text = "";
+			var text = "Controlling:\n";
 			foreach (var c in _controls)
 			{
 				text += c.Name + "\n";

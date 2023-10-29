@@ -9,6 +9,9 @@ public partial class EgoVehicle : Area2D
     [Export]
     public float RotationRate { get; set; } = 1;
 
+    [Export]
+    public Label Label { get; set; } = null;
+
     public Vector2 ScreenSize;
 
     private CopterModel _model;
@@ -54,5 +57,13 @@ public partial class EgoVehicle : Area2D
             velocity = velocity.Normalized();
         }
         (Position, Rotation) = _model.Update(Position, Rotation, velocity * Speed, rotation * RotationRate, delta);
+    }
+
+    public void OnAreaEntered(Area2D area)
+    {
+        if (Label != null)
+        {
+            Label.Text += "Collision\n";
+        }
     }
 }

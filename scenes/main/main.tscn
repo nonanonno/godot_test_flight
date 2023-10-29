@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://btr3rlm7bqhjv"]
+[gd_scene load_steps=6 format=3 uid="uid://btr3rlm7bqhjv"]
 
 [ext_resource type="PackedScene" uid="uid://b23hbvpdrakxj" path="res://scenes/ego_vehicle/ego_vehicle.tscn" id="1_w8io1"]
 [ext_resource type="PackedScene" uid="uid://bovl17d8g536e" path="res://scenes/path_driver/path_driver.tscn" id="2_xhkmv"]
 [ext_resource type="PackedScene" uid="uid://c8lk0jvu8clxl" path="res://scenes/vehicle/vehicle.tscn" id="3_xgh7w"]
+[ext_resource type="PackedScene" uid="uid://db5guagjap4xx" path="res://scenes/airport/air_port.tscn" id="4_wkgfe"]
 
 [sub_resource type="Curve2D" id="Curve2D_ho6v5"]
 _data = {
@@ -12,8 +13,10 @@ point_count = 7
 
 [node name="Main" type="Node2D"]
 
-[node name="EgoVehicle" parent="." instance=ExtResource("1_w8io1")]
+[node name="EgoVehicle" parent="." node_paths=PackedStringArray("Label") instance=ExtResource("1_w8io1")]
 position = Vector2(171, 189)
+collision_mask = 4
+Label = NodePath("../Label")
 
 [node name="PathDriver" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_xhkmv")]
 curve = SubResource("Curve2D_ho6v5")
@@ -21,3 +24,16 @@ Debug = true
 Target = NodePath("Vehicle")
 
 [node name="Vehicle" parent="PathDriver" instance=ExtResource("3_xgh7w")]
+collision_layer = 4
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AirPort" parent="." instance=ExtResource("4_wkgfe")]
+position = Vector2(121, 564)
+collision_layer = 2
+
+[node name="AirPort2" parent="." instance=ExtResource("4_wkgfe")]
+position = Vector2(1053, 119)
+collision_layer = 2

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/ego_vehicle/EgoVehicle.cs" id="1_bog2r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0p0p"]
+radius = 50.0
 
 [node name="EgoVehicle" type="Area2D"]
 script = ExtResource("1_bog2r")
@@ -15,3 +16,5 @@ shape = SubResource("CircleShape2D_h0p0p")
 
 [node name="Visualizer" type="Node2D" parent="."]
 script = ExtResource("1_4b6s3")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

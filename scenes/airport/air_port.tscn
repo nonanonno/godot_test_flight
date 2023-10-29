@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://db5guagjap4xx"]
+
+[ext_resource type="Texture2D" uid="uid://usu4tekwpst0" path="res://icon.svg" id="1_7i2vc"]
+[ext_resource type="Script" path="res://scenes/airport/AirPort.cs" id="1_qj1du"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uur7u"]
+radius = 100.0
+
+[node name="AirPort" type="Area2D" node_paths=PackedStringArray("Label")]
+z_index = -50
+script = ExtResource("1_qj1du")
+Label = NodePath("Node2D/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uur7u")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_7i2vc")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-64, 64)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_right = 59.0
+offset_bottom = 36.0
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
+[connection signal="area_exited" from="." to="." method="OnAreaExited"]
